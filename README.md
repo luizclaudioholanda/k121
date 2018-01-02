@@ -4,7 +4,7 @@
 This application is composed by two main project. SecretFriendApp and secretFriend-client.
 For database, it uses a noSQL (MongoDB) and for testing emails a Ethereal Email service.
 
-#SecretFriendApp
+# SecretFriendApp
 This project is the back-end part. It uses a mongoDB noSQL database to store documents used
 in application.
 After clone this application, you need to create a folder named <b>friendDb</b> and run the command
@@ -21,7 +21,7 @@ Move to directory SecretFriendApp and run the following command:
 
 This will start the server on port 3000, and will be avaiable on localhost:3000
 
-#secretFriend-client
+# secretFriend-client
 This project is the front-end part.
 Run the following command to start client.
 
