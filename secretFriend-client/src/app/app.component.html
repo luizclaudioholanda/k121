@@ -1,0 +1,130 @@
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
+    <div class="friends" *ngIf="friendsList">
+      <table class="table">
+        <thead class="h">
+          <tr class="h">
+            <th class="h">Name</th>
+            <th class="h">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="friend" (dblclick)="editFriend(friend)" *ngFor="let friend of friendsList">
+
+            <ng-container *ngIf="!editFriends.includes(friend); else editTD">
+              <td>{{friend.name}}</td>
+              <td>{{friend.email}}</td>
+            </ng-container>
+
+            <ng-template #editTD>
+                <td><input type="text" name="name" id="name" (keypress)="submitFrien($event, friend)" [(ngModel)]="friend.name" placeholder="Name" class="form-control"></td>
+                <td><input type="text" name="email" id="email" (keypress)="submitFriend($event, friend)" [(ngModel)]="friend.email" placeholder="Email"
+                    class="form-control"></td>
+            </ng-template>
+
+            <td class="o">
+              <button class="btn btn-success" (click)="doneFriend(friend)">
+                <i  class="fa fa-check"></i>
+              </button>
+              <button class="btn btn-primary" (click)="editFriend(friend)">
+                  <i  class="fa fa-pencil"></i>
+                </button>
+              <button class="btn btn-danger" (click)="deleteFriend(friend)">
+                  <i  class="fa fa-trash"></i>
+                </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <form>
+      <div class="form-row">
+
+        <div class="col-md-5">
+          <input type="text" name="name" id="name" [(ngModel)]="newFriend.name" placeholder="Name" class="form-control">
+        </div>
+        <div class="col-md-5">
+          <input name="email" id="email" [(ngModel)]="newFriend.email" placeholder="Email" class="form-control"
+            id="email">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="col-md-2">
+    <button type="submit" class="btn btn-primary" (click)="sendEmail()">Select Friends</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
+    <!-- <div class="friends" *ngIf="friendsList">
+      <table class="table">
+        <thead class="h">
+          <tr class="h">
+            <th class="h">Name</th>
+            <th class="h">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="friend" (dblclick)="editFriend(friend)" *ngFor="let friend of friendsList">
+
+            <ng-container *ngIf="!editFriends.includes(friend); else editTD">
+              <td>{{friend.name}}</td>
+              <td>{{friend.email}}</td>
+            </ng-container>
+
+            <ng-template #editTD>
+                <td><input type="text" name="name" id="name" (keypress)="submitFrien($event, friend)" [(ngModel)]="friend.name" placeholder="Name" class="form-control"></td>
+                <td><input type="text" name="email" id="email" (keypress)="submitFriend($event, friend)" [(ngModel)]="friend.email" placeholder="Email"
+                    class="form-control"></td>
+            </ng-template>
+
+            <td class="o">
+              <button class="btn btn-success" (click)="doneFriend(friend)">
+                <i  class="fa fa-check"></i>
+              </button>
+              <button class="btn btn-primary" (click)="editFriend(friend)">
+                  <i  class="fa fa-pencil"></i>
+                </button>
+              <button class="btn btn-danger" (click)="deleteFriend(friend)">
+                  <i  class="fa fa-trash"></i>
+                </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+
+
+    <!-- <form>
+      <div class="form-row">
+
+        <div class="col-md-5">
+          <input type="text" name="name" id="name" [(ngModel)]="newFriend.name" placeholder="Name" class="form-control">
+        </div>
+        <div class="col-md-5">
+          <input name="email" id="email" [(ngModel)]="newFriend.email" placeholder="Email" class="form-control"
+            id="email">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
+        </div>
+      </div>
+    </form> -->
+  </div>
+  <div class="col-md-2">
+
+  </div>
+</div>
